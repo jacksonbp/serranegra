@@ -1,0 +1,7 @@
+coleta.log
+__pycache__/
+*.tmp
+.claude/
+# nunca guardar o token da API em arquivo
+.env
+*.token

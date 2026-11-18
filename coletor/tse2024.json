@@ -1,0 +1,625 @@
+{
+ "fonte": "https://resultados.tse.jus.br/oficial/ele2024/619/dados/sp/sp71331-c0013-e000619-u.json",
+ "candidatos": {
+  "JOAO ALCIDES DEI SANTI": {
+   "urna": "JOAO DEI SANTI",
+   "votos": 107,
+   "sit": "Não eleito"
+  },
+  "MAURO DONIZETTI MINIERI": {
+   "urna": "MAURO DO BANCO",
+   "votos": 53,
+   "sit": "Não eleito"
+  },
+  "MARIA PAULA PIASSA ARGENTO": {
+   "urna": "MARIA PAULA PIASSA",
+   "votos": 11,
+   "sit": "Não eleito"
+  },
+  "JOSE VALDECIR PEDRAO": {
+   "urna": "VAL ESPAÇO VERDE",
+   "votos": 89,
+   "sit": "Não eleito"
+  },
+  "ISLAN DONISETE DA SILVA": {
+   "urna": "ISLAN SILVA",
+   "votos": 39,
+   "sit": "Não eleito"
+  },
+  "FRANCISCO DE ASSIS BERTAN JUNIOR": {
+   "urna": "CHICAO DA CULTURA",
+   "votos": 75,
+   "sit": "Não eleito"
+  },
+  "VANESSA APARECIDA DE OLIVEIRA DA SILVA": {
+   "urna": "VANESSA OLIVEIRA",
+   "votos": 37,
+   "sit": "Não eleito"
+  },
+  "MONICA REGINA DEMATTE SOARES MARTINS": {
+   "urna": "MONICA DALLARI",
+   "votos": 58,
+   "sit": "Não eleito"
+  },
+  "JOSE CARLOS LEME DE OLIVEIRA": {
+   "urna": "ZE PIRES",
+   "votos": 77,
+   "sit": "Não eleito"
+  },
+  "LUCAS CORDEIRO BETIOL": {
+   "urna": "LUCAS CORDEIRO",
+   "votos": 34,
+   "sit": "Não eleito"
+  },
+  "IAN SOARES BELEM": {
+   "urna": "TREINADOR IAN SOARES",
+   "votos": 5,
+   "sit": "Não eleito"
+  },
+  "ANA LUCIA PIRES": {
+   "urna": "ANA LUCIA AGENTE DE SAUDE",
+   "votos": 14,
+   "sit": "Não eleito"
+  },
+  "JOSÉ DOS SANTOS TORRES": {
+   "urna": "ZEZINHO DO FOGÃO",
+   "votos": 21,
+   "sit": "Não eleito"
+  },
+  "JOSÉ FERNANDO MARTINS": {
+   "urna": "FERNANDO ENCANADOR",
+   "votos": 78,
+   "sit": "Não eleito"
+  },
+  "PEDRO FERREIRA DA SILVA": {
+   "urna": "PEDRO PINTOR",
+   "votos": 19,
+   "sit": "Não eleito"
+  },
+  "ANA LUCIA GONÇALVES CUNHA": {
+   "urna": "ANA DO SALGADINHO",
+   "votos": 17,
+   "sit": "Não eleito"
+  },
+  "ARNALDO RIBEIRO DA SILVA": {
+   "urna": "ARNALDO BARÃO",
+   "votos": 18,
+   "sit": "Não eleito"
+  },
+  "EULINA RAMALHO GUIDETTI": {
+   "urna": "LINA DO BAR",
+   "votos": 15,
+   "sit": "Não eleito"
+  },
+  "LIDIANA APARECIDA CARDOSO DE GODOI FROES": {
+   "urna": "LIDIANA FROES",
+   "votos": 18,
+   "sit": "Não eleito"
+  },
+  "MURILO GODOY MORAES": {
+   "urna": "MURILO PIMENTA",
+   "votos": 68,
+   "sit": "Não eleito"
+  },
+  "PEDRO DONIZETI BUENO": {
+   "urna": "PEDRO VIOLEIRO",
+   "votos": 14,
+   "sit": "Não eleito"
+  },
+  "JOAO VALENTIM DE ALMEIDA BORSON": {
+   "urna": "JOÃO ALMEIDA",
+   "votos": 26,
+   "sit": "Não eleito"
+  },
+  "CHRISTIAN RAFAINI": {
+   "urna": "CHRISTIAN RAFAINI",
+   "votos": 12,
+   "sit": "Não eleito"
+  },
+  "TALITA DA COSTA": {
+   "urna": "TALITA COSTA",
+   "votos": 10,
+   "sit": "Não eleito"
+  },
+  "MARIA APARECIDA DALLARI GUIRELLI": {
+   "urna": "PICI DALLARI",
+   "votos": 145,
+   "sit": "Não eleito"
+  },
+  "CARLOS ROBERTO DE ALMEIDA MOTTA": {
+   "urna": "CARLOS MOTTA",
+   "votos": 41,
+   "sit": "Não eleito"
+  },
+  "BENEDITO APARECIDO DE OLIVEIRA ZANONA": {
+   "urna": "BENE ZANONA",
+   "votos": 20,
+   "sit": "Não eleito"
+  },
+  "ANA SALETE COELHO DA SILVA": {
+   "urna": "SALETE SILVA",
+   "votos": 209,
+   "sit": "Não eleito"
+  },
+  "LUCAS CAMPOS PATRICIO": {
+   "urna": "LUCAS",
+   "votos": 58,
+   "sit": "Não eleito"
+  },
+  "MARINA APARECIDA DE ARAUJO": {
+   "urna": "MARINA ARAUJO",
+   "votos": 9,
+   "sit": "Não eleito"
+  },
+  "DIONETE MARQUES DOS SANTOS": {
+   "urna": "DIONETE",
+   "votos": 20,
+   "sit": "Não eleito"
+  },
+  "JOSE JADER ALMEIDA MAGALHAES": {
+   "urna": "JADER DA SAUDE",
+   "votos": 59,
+   "sit": "Não eleito"
+  },
+  "EDUARDO BRAGATO DE GODOY": {
+   "urna": "EDUARDO DO MERCADINHO",
+   "votos": 25,
+   "sit": "Não eleito"
+  },
+  "ORDALIA ADELIA GONÇALVES": {
+   "urna": "LIA GONÇALVES",
+   "votos": 12,
+   "sit": "Não eleito"
+  },
+  "LUISA EDILENA NUNES DA SILVA": {
+   "urna": "EDILENE (LENA)",
+   "votos": 45,
+   "sit": "Não eleito"
+  },
+  "CLAUDETE CAMARGO DIAS": {
+   "urna": "CLAUDETE DIAS",
+   "votos": 2,
+   "sit": "Não eleito"
+  },
+  "JOSE LUIZ BORBOLATO": {
+   "urna": "JOSE LUIZ(SHEIK DA QUEBRADA)",
+   "votos": 30,
+   "sit": "Não eleito"
+  },
+  "MAGDO ALVES DE BARROS": {
+   "urna": "MAGDO ALVES",
+   "votos": 12,
+   "sit": "Não eleito"
+  },
+  "OSVALDO DA COSTA FILHO": {
+   "urna": "OSVALDO DA GARAGEM",
+   "votos": 26,
+   "sit": "Não eleito"
+  },
+  "EDUARDO MORANDO MAURICIO": {
+   "urna": "SARGENTO MORANDO",
+   "votos": 11,
+   "sit": "Não eleito"
+  },
+  "ALFREDO RAMALHO": {
+   "urna": "ALFREDO RAMALHO",
+   "votos": 44,
+   "sit": "Não eleito"
+  },
+  "GILVANI CHAVES PINHEIRO": {
+   "urna": "PROF GIOVANE DO KARATÊ",
+   "votos": 183,
+   "sit": "Suplente"
+  },
+  "DIMITRIUS REGIS DALONSO": {
+   "urna": "PROF DIMITRIUS DALONSO DINHO",
+   "votos": 60,
+   "sit": "Suplente"
+  },
+  "EDUARDO APARECIDO BARBOSA": {
+   "urna": "EDUARDO BARBOSA",
+   "votos": 318,
+   "sit": "Suplente"
+  },
+  "KARINA KELLYS FERREIRA SOUZA": {
+   "urna": "KARINA KELLYS",
+   "votos": 334,
+   "sit": "Eleito por média"
+  },
+  "EDSON GALAVERNA BONAMI": {
+   "urna": "EDSON PAPAN",
+   "votos": 124,
+   "sit": "Suplente"
+  },
+  "JOÃO RICARDO GALLEGO": {
+   "urna": "TUCO DA ÁGUA",
+   "votos": 340,
+   "sit": "Eleito por QP"
+  },
+  "JOYCE DAIANE GODOY DA SILVA": {
+   "urna": "JOYCE DO TURISMO",
+   "votos": 29,
+   "sit": "Suplente"
+  },
+  "REGINA APARECIDA LEITE GANEM METNE": {
+   "urna": "REGINA DO AFIF",
+   "votos": 34,
+   "sit": "Suplente"
+  },
+  "VERA LUCIA MARCO DE OLIVEIRA": {
+   "urna": "VERA INVESTIGADORA",
+   "votos": 55,
+   "sit": "Suplente"
+  },
+  "ALEX MARCONDES DE GODOI": {
+   "urna": "ALEX GODOI",
+   "votos": 90,
+   "sit": "Suplente"
+  },
+  "RODRIGO DE OLIVEIRA ZANONI": {
+   "urna": "RODRIGO ZANONI PURGA",
+   "votos": 277,
+   "sit": "Suplente"
+  },
+  "JOSÉ ROBERTO BEARARI": {
+   "urna": "ZÉ FAQUERO",
+   "votos": 65,
+   "sit": "Suplente"
+  },
+  "ANNA BEATRIZ VASCONCELLOS SCACHETTI": {
+   "urna": "ANNA BEATRIZ SCACHETTI",
+   "votos": 614,
+   "sit": "Eleito por QP"
+  },
+  "ROBERTO SEBASTIAO DE ALMEIDA": {
+   "urna": "ROBERTO",
+   "votos": 328,
+   "sit": "Suplente"
+  },
+  "LUCIANO CUNHA": {
+   "urna": "LUCIANO",
+   "votos": 104,
+   "sit": "Suplente"
+  },
+  "NICHOLAS OSTI": {
+   "urna": "NICHOLAS OSTI",
+   "votos": 45,
+   "sit": "Suplente"
+  },
+  "MICHELI JAQUELINE CARDOSO MOROSI": {
+   "urna": "MICHELI MOROSI (MIKA)",
+   "votos": 88,
+   "sit": "Suplente"
+  },
+  "ROSIMAR GONÇALVES DA SILVA": {
+   "urna": "ROSIMAR GOLEIRO",
+   "votos": 423,
+   "sit": "Eleito por média"
+  },
+  "ELIANE CRISTINA FASI": {
+   "urna": "LIH FAES DA ENFERMAGEM",
+   "votos": 34,
+   "sit": "Suplente"
+  },
+  "ADRIANA JACINTO DE SOUSA": {
+   "urna": "ADRIANA SOUSA",
+   "votos": 11,
+   "sit": "Suplente"
+  },
+  "CARLOS ROQUE DELLA GUARDIA NETO": {
+   "urna": "NETO DELLA GUARDIA",
+   "votos": 19,
+   "sit": "Suplente"
+  },
+  "ADRIANA DE BIASI DORIGATTI": {
+   "urna": "ADRIANA DORIGATTI",
+   "votos": 40,
+   "sit": "Suplente"
+  },
+  "CRISTIANO ASSIS DA SILVA": {
+   "urna": "CRISTIANO ASSIS",
+   "votos": 39,
+   "sit": "Suplente"
+  },
+  "MARCIO ANGHINONI MARCHI": {
+   "urna": "MARCIO MARCHI",
+   "votos": 17,
+   "sit": "Suplente"
+  },
+  "BERALDO ANTONIO RAMALHO CATTINI": {
+   "urna": "BERALDO RAMALHO CATTINI",
+   "votos": 200,
+   "sit": "Suplente"
+  },
+  "JOSÉ APARECIDO ORLANDI": {
+   "urna": "ZÉ TEGÃO",
+   "votos": 171,
+   "sit": "Suplente"
+  },
+  "CARLA CINTIA STABILE": {
+   "urna": "CARLA STABILE",
+   "votos": 104,
+   "sit": "Suplente"
+  },
+  "ANDRE EDUARDO OLIVEIRA DE SOUZA": {
+   "urna": "ANDRÉ SOUZA DA TRIBUTAÇÃO",
+   "votos": 72,
+   "sit": "Suplente"
+  },
+  "JOSÉ CARLOS DINI": {
+   "urna": "DINI DO BANCO ITAÚ",
+   "votos": 44,
+   "sit": "Suplente"
+  },
+  "CESAR AUGUSTO OLIVEIRA BORBONI": {
+   "urna": "NEY",
+   "votos": 357,
+   "sit": "Eleito por QP"
+  },
+  "LUCIANO BENEDITO FRANCO JÚNIOR": {
+   "urna": "LUCIANO FRANCO",
+   "votos": 135,
+   "sit": "Suplente"
+  },
+  "ANA MARIA DE CASSIA RODRIGUES PINHEIRO": {
+   "urna": "ANINHA DA EDUCAÇÃO",
+   "votos": 156,
+   "sit": "Suplente"
+  },
+  "BENEDITA MILANI": {
+   "urna": "NINA MILANI",
+   "votos": 129,
+   "sit": "Suplente"
+  },
+  "JOSÉ BERNARDO GODOY": {
+   "urna": "ZÉ DAS VERTENTES",
+   "votos": 16,
+   "sit": "Suplente"
+  },
+  "VALDIR RODRIGUES DOS SANTOS": {
+   "urna": "ENGENHEIRO VALDIR",
+   "votos": 219,
+   "sit": "Suplente"
+  },
+  "MARINA MENDONÇA LUZ PACINI RICCI": {
+   "urna": "MARINA LUZ RICCI",
+   "votos": 217,
+   "sit": "Suplente"
+  },
+  "PAMELLA APARECIDA GIOVANINI BERTHOLINI": {
+   "urna": "PAMELA BERTHOLINI",
+   "votos": 16,
+   "sit": "Não eleito"
+  },
+  "JOSE RICARDO RODRIGUES DE FARIA": {
+   "urna": "RICARDO FARIA",
+   "votos": 11,
+   "sit": "Não eleito"
+  },
+  "LUIZ ROBERTO DALLARI JUNIOR": {
+   "urna": "LUIZ DALLARI",
+   "votos": 115,
+   "sit": "Não eleito"
+  },
+  "JOSEANE DE FATIMA VIEIRA PAPINI": {
+   "urna": "JO PAPINI",
+   "votos": 56,
+   "sit": "Não eleito"
+  },
+  "PAULO EURICO RAMOS PERTRINI": {
+   "urna": "PAULO PERTRINI",
+   "votos": 22,
+   "sit": "Não eleito"
+  },
+  "ADILSON FERNANDO DO COUTO": {
+   "urna": "ADILSON DA GARAGEM",
+   "votos": 127,
+   "sit": "Não eleito"
+  },
+  "ALEX ALESSANDRO TRIDA": {
+   "urna": "ALEX TRIDA",
+   "votos": 104,
+   "sit": "Não eleito"
+  },
+  "SONIA MARIA SILVA FERREIRA HONORIO": {
+   "urna": "SONINHA",
+   "votos": 28,
+   "sit": "Não eleito"
+  },
+  "ANDRIES TOMAZI FERREIRA": {
+   "urna": "ANDRIES TOMAZI",
+   "votos": 91,
+   "sit": "Não eleito"
+  },
+  "BENEDITA VIVIANI ANIBAL CARRARO": {
+   "urna": "VIVIANI CARRARO",
+   "votos": 106,
+   "sit": "Não eleito"
+  },
+  "MARCELO ROBINSON LEME DE GODOI": {
+   "urna": "MARCELO ELETRICISTA",
+   "votos": 6,
+   "sit": "Não eleito"
+  },
+  "RENATO PINTO GIACHETTO": {
+   "urna": "RENATO GIACHETTO",
+   "votos": 716,
+   "sit": "Eleito por QP"
+  },
+  "LEONEL FRANCO ATANAZIO": {
+   "urna": "LEO DA AMBULÂNCIA",
+   "votos": 421,
+   "sit": "Eleito por média"
+  },
+  "EDIBERTO TOSTA": {
+   "urna": "JORGE TOSTA",
+   "votos": 109,
+   "sit": "Suplente"
+  },
+  "MIRIAN ALMEIDA DOS SANTOS SILVA": {
+   "urna": "MIRIAN EXCURSÕES",
+   "votos": 49,
+   "sit": "Suplente"
+  },
+  "PAULO LEOPOLDO MARCHI GIANNINI": {
+   "urna": "PAULO MARCHI GIANNINI",
+   "votos": 265,
+   "sit": "Suplente"
+  },
+  "DENILSON ANGHINONI": {
+   "urna": "DENIS ANGHINONI",
+   "votos": 214,
+   "sit": "Suplente"
+  },
+  "LILIANE APARECIDA DE MORAES ANDRADE": {
+   "urna": "LILIANE DA GARAGEM",
+   "votos": 54,
+   "sit": "Suplente"
+  },
+  "FATIMA GAMBETTA FRIZERA": {
+   "urna": "FATIMA GAMBETTA",
+   "votos": 209,
+   "sit": "Suplente"
+  },
+  "ANA BARBARA REGIANI MAGALDI": {
+   "urna": "BARBARA MAGALDI",
+   "votos": 587,
+   "sit": "Eleito por QP"
+  },
+  "EDUARDO APARECIDO MACIEL": {
+   "urna": "DU DA BANCA",
+   "votos": 120,
+   "sit": "Suplente"
+  },
+  "PAULO CESAR ALVES DOS SANTOS": {
+   "urna": "PAULINHO SANTOS",
+   "votos": 116,
+   "sit": "Suplente"
+  },
+  "WAGNER DA SILVA DEL BUONO": {
+   "urna": "WAGUINHO DO HOSPITAL",
+   "votos": 1527,
+   "sit": "Eleito por QP"
+  },
+  "JOSE OSCAR CARNIEL BROLEZI": {
+   "urna": "OSCAR BROLEZI",
+   "votos": 142,
+   "sit": "Suplente"
+  },
+  "LUIZ CARLOS DE OLIVEIRA GODOI": {
+   "urna": "BIGORNA",
+   "votos": 215,
+   "sit": "Suplente"
+  },
+  "BRUNO DEI SANTI BENEDETI": {
+   "urna": "BRUNO BENEDETI",
+   "votos": 26,
+   "sit": "Suplente"
+  },
+  "DEOCLECIO ANGHINONI": {
+   "urna": "FALCÃO",
+   "votos": 260,
+   "sit": "Suplente"
+  },
+  "LETICIA ESTEFFANY VIEIRA DA SILVA": {
+   "urna": "LETICIA ESTEFFANY",
+   "votos": 354,
+   "sit": "Eleito por QP"
+  },
+  "MARCELO DE SOUZA": {
+   "urna": "MARCELO SOUZA",
+   "votos": 18,
+   "sit": "Suplente"
+  },
+  "FABIO DIX DE SANTIS": {
+   "urna": "DR. FÁBIO DIX",
+   "votos": 113,
+   "sit": "Suplente"
+  },
+  "ALINE DE ALMEIDA": {
+   "urna": "ALINE DO BRIGADEIRO",
+   "votos": 39,
+   "sit": "Suplente"
+  },
+  "ANTONIO BRAS LASTORIA": {
+   "urna": "MARCELO PITÉ",
+   "votos": 106,
+   "sit": "Suplente"
+  },
+  "PAULO SERGIO DALONSO": {
+   "urna": "PAULO DALONSO",
+   "votos": 36,
+   "sit": "Suplente"
+  },
+  "SOLIANE RITA GASPAR MACHADO": {
+   "urna": "SOL",
+   "votos": 26,
+   "sit": "Suplente"
+  },
+  "VERA FERREIRA POSTALI": {
+   "urna": "VERA POSTALI",
+   "votos": 214,
+   "sit": "Suplente"
+  },
+  "RICARDO FAVERO FIORAVANTI": {
+   "urna": "RICARDO DO TONHÃO",
+   "votos": 379,
+   "sit": "Eleito por média"
+  },
+  "DENILSON BARBOSA DA MOTTA": {
+   "urna": "DENILSON DA FLORICULTURA",
+   "votos": 131,
+   "sit": "Suplente"
+  },
+  "JOSÉ VICENTE RODRIGUES": {
+   "urna": "ZÉ VICENTE",
+   "votos": 48,
+   "sit": "Suplente"
+  },
+  "SERGIO DONIZETTI TASCA": {
+   "urna": "SERGIO ESTRADA",
+   "votos": 76,
+   "sit": "Suplente"
+  },
+  "LIDIOMAR LUIZ GONÇALVES SIQUEIRA": {
+   "urna": "ÍNDIO MOTORISTA",
+   "votos": 209,
+   "sit": "Suplente"
+  },
+  "VANESSA APARECIDA FERREIRA MARCONDES THOMAZELI": {
+   "urna": "VANESSA DA CAUSA ANIMAL",
+   "votos": 92,
+   "sit": "Suplente"
+  },
+  "ANDRÉ DONIZETI ALEXANDRE SILVA": {
+   "urna": "ANDREZÃO",
+   "votos": 94,
+   "sit": "Suplente"
+  },
+  "ANTONIO SALVADOR FERREIRA": {
+   "urna": "MENGUELLI",
+   "votos": 50,
+   "sit": "Suplente"
+  },
+  "GISLAINE GLACIAN FILIPPI": {
+   "urna": "PROFESSORA GISLAINE FILIPPI",
+   "votos": 181,
+   "sit": "Suplente"
+  },
+  "EZONEL GAMA POLA": {
+   "urna": "EZONEL GAMA POLA",
+   "votos": 33,
+   "sit": "Suplente"
+  },
+  "SANDRA REGINA PEREZ": {
+   "urna": "SANDRA PEREZ DOS BALNEÁRIOS",
+   "votos": 31,
+   "sit": "Suplente"
+  },
+  "NORMA EDINA MERCADAL DE LIMA PEREIRA": {
+   "urna": "NORMINHA DA SAÚDE",
+   "votos": 17,
+   "sit": "Suplente"
+  }
+ }
+}
