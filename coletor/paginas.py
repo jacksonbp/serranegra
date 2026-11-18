@@ -22,9 +22,23 @@ D = json.loads(open(CAMINHO_DADOS, encoding="utf-8").read()[len("window.RB="):].
 V = D["v"]
 e = lambda s: html.escape(str(s), quote=True)
 nf = lambda n: f"{int(n):,}".replace(",", ".")
+brl = lambda n: "R$ " + f"{n:,.2f}".translate(str.maketrans(",.", ".,"))
 VER = lambda arq: str(int(os.path.getmtime(os.path.join(SITE, "assets", arq))))
 CIDADE = "Serra Negra"
 TELEFONE_CAMARA = "(19) 3942-9800"  # rodapé do site oficial cmserranegra.sp.gov.br
+
+# Resolução municipal nº 420/2023 e leis estaduais nº 17.617/2023 e 18.384/2025.
+SUBSIDIOS = {
+    "vereadores": 10,
+    "base": 7900,
+    "acrescimo": 0.50,
+    "limite": 0.30,
+    "faixas": [["2025-01-01", 33006.39], ["2025-02-01", 34774.64]],
+    "fim": "2027-01-01",  # mês seguinte à última competência estadual verificada
+}
+PRESIDENCIA_NOMINAL = SUBSIDIOS["base"] * (1 + SUBSIDIOS["acrescimo"])
+TETO_ATUAL = round(SUBSIDIOS["faixas"][-1][1] * SUBSIDIOS["limite"], 2)
+TOTAL_MENSAL = SUBSIDIOS["vereadores"] * SUBSIDIOS["base"] + min(PRESIDENCIA_NOMINAL, TETO_ATUAL)
 
 
 def slug(s):
@@ -65,6 +79,7 @@ def menu_mobile(ativa):
 def dados_inicio(dados):
     campos = ("gerh", "posse", "catot", "bairros")
     resumo = {campo: dados[campo] for campo in campos}
+    resumo["subsidios"] = SUBSIDIOS
     resumo["totalPropostas"] = len(dados["items"])
     resumo["pautas"] = dados.get("pautas", [])[:3]
     resumo["v"] = [{campo: v[campo] for campo in ("id", "ap", "foto", "cat") if campo in v} for v in dados["v"]]
@@ -267,6 +282,12 @@ inicio = f"""
     <ul class="chips" id="bairros-chips"></ul>
   </div>
   <div>
+    <div class="meter radar-salary">
+      <p class="t">Estimativa de subsídios de 11 vereadores desde a posse</p>
+      <p class="v num" id="tick">{brl(TOTAL_MENSAL)} por mês</p>
+      <small>{SUBSIDIOS["vereadores"]} × {brl(SUBSIDIOS["base"])} + presidência de até {brl(TETO_ATUAL)} por mês na referência de 2026</small>
+      <a href="{BASE}/sobre/#subsidios">Como calculamos</a>
+    </div>
     <div class="stats" id="stats"></div>
     <p class="upd" data-atualizado></p>
   </div>
@@ -558,6 +579,11 @@ sobre = f"""
     <details open><summary>Os grupos de propostas</summary><p>A mesma regra vale para todos.<br>• <b>Pedido de melhoria no bairro</b> (na Câmara se chama “indicação”): o vereador pede à Prefeitura uma melhoria na rua ou no bairro.<br>• <b>Cobrança</b>: pedido de informação, requerimento ou moção de apelo, quando o vereador pergunta ou cobra algo da Prefeitura ou de outro órgão.<br>• <b>Homenagem</b>: parabéns, voto de pesar, título, medalha, nome de rua ou data comemorativa.<br>• <b>Projeto de lei</b>: cria ou muda uma regra da cidade.<br>• <b>Outros</b>: moções de apoio ou repúdio, regras internas da Câmara e demais tipos.</p></details>
     <details open><summary>Quem é o autor</summary><p>O autor de cada proposta é o que a Câmara informa no campo “autoria”. O Radar procura ali o nome de cada vereador em exercício. Quando a autoria é “Câmara Municipal”, a Prefeitura ou alguém que não está em exercício hoje, a proposta aparece na busca com a autoria original, mas não é contada para nenhum vereador.</p></details>
     <details open><summary>Bairros e ruas</summary><p>Os dados abertos da Câmara não informam o bairro de cada pedido. O bairro e a rua são lidos do texto oficial de cada pedido (o trecho “Rua tal – Bairro tal”). Quando o texto não segue esse formato, o pedido não entra no cruzamento por rua, mas continua aparecendo na busca por palavra.</p></details>
+    <details id="subsidios" open><summary>Estimativa de subsídios dos vereadores</summary>
+      <p>O contador soma os subsídios brutos mensais estimados de {SUBSIDIOS["vereadores"]} vereadores e de quem ocupa a presidência, desde 1º de janeiro de 2025. O mês em andamento é proporcional ao tempo decorrido.</p>
+      <p>A <a href="https://ecrie.com.br/sistema/conteudos/arquivo/a_107_0_1_27122023144318.pdf#page=21">Resolução nº 420/2023</a> fixa {brl(SUBSIDIOS["base"])} por vereador. Para a presidência, o acréscimo de 50% resultaria em {brl(PRESIDENCIA_NOMINAL)} antes do teto. O cálculo aplica o limite de 30% do subsídio estadual em cada período, conforme as leis <a href="https://www.al.sp.gov.br/repositorio/legislacao/lei/2023/lei-17617-16.01.2023.html">nº 17.617/2023</a> e <a href="https://www.al.sp.gov.br/repositorio/legislacao/lei/2025/lei-18384-23.12.2025.html">nº 18.384/2025</a>. Pela referência de 2026, são até {brl(TETO_ATUAL)} para a presidência e {brl(TOTAL_MENSAL)} mensais no conjunto.</p>
+      <p>A estimativa usa os valores de referência da resolução e tem cobertura até dezembro de 2026. A folha pode refletir reajustes ou descontos. A conta exclui 13º e outros pagamentos.</p>
+    </details>
 {LOC_SOBRE}
     <details open><summary>O que o site não mostra</summary><p>{SEM_VOTOS} As votações aparecem nos dados abertos só com o resultado total, e o Radar não deduz o voto de ninguém a partir dele.</p></details>
   </div>

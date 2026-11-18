@@ -191,7 +191,40 @@ document.querySelectorAll('[data-atualizado]').forEach(el=>{el.textContent=`Dado
 /* ================= PÁGINAS ================= */
 const P={};
 
+function iniciarContadorDeSubsidios(){
+  const contador = $('tick');
+  if (!contador || !D.subsidios) return;
+
+  const {vereadores, base, acrescimo, limite, faixas, fim} = D.subsidios;
+  const brl = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'});
+  const inicioBrt = dia => Date.parse(dia + 'T00:00:00-03:00');
+  const ultimoMes = inicioBrt(fim);
+  const meses = [];
+  for (let i = 0; i < faixas.length; i++){
+    const [dia, estadual] = faixas[i];
+    const fimFaixa = i + 1 < faixas.length ? inicioBrt(faixas[i + 1][0]) : ultimoMes;
+    const presidencia = Math.min(base * (1 + acrescimo), estadual * limite);
+    const centavos = Math.round((vereadores * base + presidencia) * 100);
+    const [ano, mes] = dia.split('-').map(Number);
+    for (let offset = mes - 1; Date.UTC(ano, offset, 1, 3) < fimFaixa; offset++){
+      meses.push([Date.UTC(ano, offset, 1, 3), Date.UTC(ano, offset + 1, 1, 3), centavos]);
+    }
+  }
+
+  const atualizar = () => {
+    const agora = Math.min(Date.now(), ultimoMes);
+    const estimativa = meses.reduce((total, [inicio, fimMes, centavos]) => {
+      const proporcao = Math.max(0, Math.min(1, (agora - inicio) / (fimMes - inicio)));
+      return total + centavos * proporcao;
+    }, 0);
+    contador.textContent = brl.format(estimativa / 100);
+  };
+  atualizar();
+  if (!reduce && Date.now() < ultimoMes) setInterval(atualizar, 1000);
+}
+
 P.inicio=function(){
+  iniciarContadorDeSubsidios();
   $('livet').textContent=`dados conferidos ${ago()}`; setInterval(()=>{$('livet').textContent=`dados conferidos ${ago()}`},6e4);
   const STATS=[
     ['',D.totalPropostas??IT.length,'propostas desde a posse',''],
