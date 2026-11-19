@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="/serranegra/assets/mobile-nav.css?v=1795019151">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Radar Serra Negra", "url": "https://vozdascidades.com.br/serranegra/", "inLanguage": "pt-BR", "description": "O que os vereadores de Serra Negra propõem desde a posse, com dados oficiais."}</script>
 </head>
-<body data-contato="" data-telefone="(19) 3942-9800">
+<body data-contato="contato@bragancaterraquerida.com.br" data-telefone="(19) 3942-9800">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="nav"><div class="wrap">
   <a class="brand" href="/serranegra/" aria-label="Radar Serra Negra, página inicial"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="8" fill="#e5322d"/><path d="M19 17a21 21 0 000 30M45 17a21 21 0 010 30M10 9a33 33 0 000 46M54 9a33 33 0 010 46" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/></svg><span><b>RADAR</b><b>SERRA NEGRA</b></span></a>
@@ -39,16 +39,18 @@
     <span class="live"><i></i><span id="livet">Dados da Câmara</span></span>
     <h1 class="logo" aria-label="Radar Serra Negra"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="8" fill="#e5322d"/><path d="M19 17a21 21 0 000 30M45 17a21 21 0 010 30M10 9a33 33 0 000 46M54 9a33 33 0 010 46" stroke="#111a24" stroke-width="5" fill="none" stroke-linecap="round"/></svg><span><b>RADAR</b><b>SERRA NEGRA</b></span></h1>
     <p class="intro">Veja o que os vereadores de Serra Negra propuseram e o que pediram para o seu bairro.</p>
-    <form class="search" id="fbq" role="search"><label for="hq" class="eyebrow">O que pediram pelo seu bairro?</label>
-      <div class="radar-search-row"><div class="radar-search-field"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="hq" type="search" list="hq-bairros" placeholder="Digite seu bairro ou sua rua" autocomplete="off"><datalist id="hq-bairros"></datalist></div><button class="btn" type="submit">Buscar</button></div></form>
+    <form class="search" id="fbq" action="/serranegra/bairros/#busca" role="search"><label for="hq" class="eyebrow">Bairro ou rua</label>
+      <div class="radar-search-row"><div class="radar-search-field"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="hq" name="q" type="search" list="hq-bairros" placeholder="Digite seu bairro ou sua rua" autocomplete="off"><datalist id="hq-bairros"></datalist></div><button class="btn" type="submit">Consultar pedidos para minha rua</button></div></form>
     <ul class="chips" id="bairros-chips"></ul>
   </div>
   <div>
     <div class="meter radar-salary">
-      <p class="t">Estimativa de subsídios de 11 vereadores desde a posse</p>
-      <p class="v num" id="tick">R$ 89.432,39 por mês</p>
+      <p class="t">Estimativa acumulada de subsídios desde janeiro de 2025</p>
+      <p class="v num" id="tick">—</p>
+      <p><strong>R$ 89.432,39 por mês</strong> · estimativa mensal de 2026</p>
       <small>10 × R$ 7.900,00 + presidência de até R$ 10.432,39 por mês na referência de 2026</small>
       <a href="/serranegra/sobre/#subsidios">Como calculamos</a>
+      <a href="mailto:contato@bragancaterraquerida.com.br?subject=Corre%C3%A7%C3%A3o%20no%20Radar%20Serra%20Negra%20%E2%80%94%20Estimativa%20de%20subs%C3%ADdios&amp;body=P%C3%A1gina%3A%20https%3A%2F%2Fvozdascidades.com.br%2Fserranegra%2F%0ADado%3A%20Estimativa%20de%20subs%C3%ADdios%0A%0AO%20que%20precisa%20ser%20corrigido%3F%0A">Reportar erro</a>
     </div>
     <div class="stats" id="stats"></div>
     <p class="upd" data-atualizado></p>
@@ -59,7 +61,7 @@
   <h2>Explore o Radar</h2>
   <div class="tiles">
     <a class="tile k-o" href="/serranegra/vereadores/"><span class="ci"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.5a3.5 3.5 0 010 7M18 14a6 6 0 013.5 6"/></svg></span><b>Os 11 vereadores</b><span>As propostas de cada um desde a posse, com a mesma régua.</span><span class="go">Abrir →</span></a>
-    <a class="tile k-b" href="/serranegra/bairros/"><span class="ci"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><b>Seu bairro</b><span>Tudo o que pediram para a sua rua, e por quem.</span><span class="go">Abrir →</span></a>
+    <a class="tile k-b" href="/serranegra/bairros/"><span class="ci"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><b>Pedidos por bairro</b><span>Veja os pedidos registrados e quem os apresentou.</span><span class="go">Abrir →</span></a>
     <a class="tile k-l" href="/serranegra/propostas/"><span class="ci"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg></span><b>Propostas</b><span>Consulte pedidos, homenagens e projetos de lei.</span><span class="go">Abrir →</span></a>
     <a class="tile k-c" href="/serranegra/sessoes/"><span class="ci"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg></span><b>Sessões</b><span>As pautas das sessões da Câmara, com o link oficial.</span><span class="go">Abrir →</span></a>
   </div>
@@ -90,8 +92,8 @@
 
 <section class="wrap" id="repetidos">
   <p class="eyebrow">Só aqui</p>
-  <h2>O problema que não some</h2>
-  <p class="lead">Quando o mesmo pedido volta várias vezes para a mesma rua, é sinal de que o problema continua lá. <a href="/serranegra/bairros/#repetidos">Ver todas as ruas →</a></p>
+  <h2>Pedidos que voltaram à Câmara</h2>
+  <p class="lead">Veja pedidos sobre a mesma rua e o mesmo tema registrados mais de uma vez. <a href="/serranegra/bairros/#repetidos">Ver todas as ruas →</a></p>
   <div class="reps" id="reps"></div>
 </section>
 
@@ -100,11 +102,11 @@
   <div><a class="brand" href="/serranegra/"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="8" fill="#e5322d"/><path d="M19 17a21 21 0 000 30M45 17a21 21 0 010 30M10 9a33 33 0 000 46M54 9a33 33 0 010 46" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/></svg><span><b>RADAR</b><b>SERRA NEGRA</b></span></a>
     <p>O que os vereadores de Serra Negra propõem desde a posse, com os dados oficiais da Câmara Municipal, do TSE e do Tribunal de Contas do Estado (TCE-SP). Mesma régua para todos, sem nota nem opinião.</p></div>
   <div><h4>Páginas</h4><ul><li><a href="/serranegra/">Início</a></li><li><a href="/serranegra/vereadores/">Vereadores</a></li><li><a href="/serranegra/bairros/">Seu bairro</a></li><li><a href="/serranegra/propostas/">Propostas</a></li><li><a href="/serranegra/sessoes/">Sessões</a></li><li><a href="/serranegra/prefeitura/">Prefeitura</a></li><li><a href="/serranegra/sobre/">Sobre</a></li></ul></div>
-  <div><h4>Contato</h4><ul><li><a href="/serranegra/sobre/">Como contamos os números</a></li><li>Parte do <a href="https://vozdascidades.com.br/">Voz das Cidades</a></li></ul></div>
+  <div><h4>Contato</h4><ul><li>Achou um erro? Escreva para<br><a href="mailto:contato@bragancaterraquerida.com.br"><b>contato@bragancaterraquerida.com.br</b></a><br>Conferimos e corrigimos o mais rápido possível, e a correção fica registrada.</li><li><a href="/serranegra/sobre/">Como contamos os números</a></li><li>Parte do <a href="https://vozdascidades.com.br/">Voz das Cidades</a></li></ul></div>
   <p class="fine"><span data-atualizado></span> Este não é um site oficial. Projeto independente, sem ligação com a Câmara, a Prefeitura, candidatos ou partidos. Todos os dados vêm de fontes públicas, citadas em cada página.</p>
 </div></footer>
 <script src="/serranegra/dados-inicio.js?v=2026-11-18T13:31:39-03:00"></script>
-<script src="/serranegra/assets/radar.js?v=1795019151"></script>
+<script src="/serranegra/assets/radar.js?v=1795049152"></script>
 <script>Radar.inicio()</script>
 </body>
 </html>

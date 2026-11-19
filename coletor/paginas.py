@@ -11,6 +11,8 @@ Uso: python coletor/paginas.py     (o robô diário roda depois de coletar.py)
 """
 import html, json, os, re, shutil, unicodedata
 
+from urllib.parse import urlencode, quote
+
 from config_site import BASE, CONTATO, DOMINIO, ENDERECO_SITE, GOATCOUNTER, URL_SITE
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -102,6 +104,15 @@ def contato_html():
         return ""
     return (f'<li>Achou um erro? Escreva para<br><a href="mailto:{e(CONTATO)}"><b>{e(CONTATO)}</b></a><br>'
             'Conferimos e corrigimos o mais rápido possível, e a correção fica registrada.</li>')
+
+
+def link_correcao(pagina, dado):
+    if not CONTATO:
+        return ""
+    assunto = f"Correção no Radar Serra Negra — {dado}"
+    mensagem = f"Página: {URL_SITE}{pagina}\nDado: {dado}\n\nO que precisa ser corrigido?\n"
+    parametros = urlencode({"subject": assunto, "body": mensagem}, quote_via=quote)
+    return f'<a href="mailto:{e(CONTATO)}?{e(parametros)}">Reportar erro</a>'
 
 
 def pagina(ativa, titulo, descricao, url, corpo, init, imagem="/capa.jpg", titulo_og=None, extra_head=""):
@@ -277,16 +288,18 @@ inicio = f"""
     <span class="live"><i></i><span id="livet">Dados da Câmara</span></span>
     <h1 class="logo" aria-label="Radar Serra Negra">{LOGO.replace('currentColor', '#111a24')}{MARCA}</h1>
     <p class="intro">Veja o que os vereadores de Serra Negra propuseram e o que pediram para o seu bairro.</p>
-    <form class="search" id="fbq" role="search"><label for="hq" class="eyebrow">O que pediram pelo seu bairro?</label>
-      <div class="radar-search-row"><div class="radar-search-field">{SEARCH_ICON}<input id="hq" type="search" list="hq-bairros" placeholder="Digite seu bairro ou sua rua" autocomplete="off"><datalist id="hq-bairros"></datalist></div><button class="btn" type="submit">Buscar</button></div></form>
+    <form class="search" id="fbq" action="{BASE}/bairros/#busca" role="search"><label for="hq" class="eyebrow">Bairro ou rua</label>
+      <div class="radar-search-row"><div class="radar-search-field">{SEARCH_ICON}<input id="hq" name="q" type="search" list="hq-bairros" placeholder="Digite seu bairro ou sua rua" autocomplete="off"><datalist id="hq-bairros"></datalist></div><button class="btn" type="submit">Consultar pedidos para minha rua</button></div></form>
     <ul class="chips" id="bairros-chips"></ul>
   </div>
   <div>
     <div class="meter radar-salary">
-      <p class="t">Estimativa de subsídios de 11 vereadores desde a posse</p>
-      <p class="v num" id="tick">{brl(TOTAL_MENSAL)} por mês</p>
+      <p class="t">Estimativa acumulada de subsídios desde janeiro de 2025</p>
+      <p class="v num" id="tick">—</p>
+      <p><strong>{brl(TOTAL_MENSAL)} por mês</strong> · estimativa mensal de 2026</p>
       <small>{SUBSIDIOS["vereadores"]} × {brl(SUBSIDIOS["base"])} + presidência de até {brl(TETO_ATUAL)} por mês na referência de 2026</small>
       <a href="{BASE}/sobre/#subsidios">Como calculamos</a>
+      {link_correcao("/", "Estimativa de subsídios")}
     </div>
     <div class="stats" id="stats"></div>
     <p class="upd" data-atualizado></p>
@@ -297,7 +310,7 @@ inicio = f"""
   <h2>Explore o Radar</h2>
   <div class="tiles">
     {tile("o", "/vereadores/", f"Os {len(V)} vereadores", "As propostas de cada um desde a posse, com a mesma régua.", IC_USERS)}
-    {tile("b", "/bairros/", "Seu bairro", "Tudo o que pediram para a sua rua, e por quem.", IC_PIN)}
+    {tile("b", "/bairros/", "Pedidos por bairro", "Veja os pedidos registrados e quem os apresentou.", IC_PIN)}
     {tile("l", "/propostas/", "Propostas", "Consulte pedidos, homenagens e projetos de lei.", IC_LAW)}
     {tile("c", "/sessoes/", "Sessões", "As pautas das sessões da Câmara, com o link oficial.", IC_CAL)}
   </div>
@@ -328,8 +341,8 @@ inicio = f"""
 
 <section class="wrap" id="repetidos">
   <p class="eyebrow">Só aqui</p>
-  <h2>O problema que não some</h2>
-  <p class="lead">Quando o mesmo pedido volta várias vezes para a mesma rua, é sinal de que o problema continua lá. <a href="{BASE}/bairros/#repetidos">Ver todas as ruas →</a></p>
+  <h2>Pedidos que voltaram à Câmara</h2>
+  <p class="lead">Veja pedidos sobre a mesma rua e o mesmo tema registrados mais de uma vez. <a href="{BASE}/bairros/#repetidos">Ver todas as ruas →</a></p>
   <div class="reps" id="reps"></div>
 </section>
 """
@@ -446,13 +459,13 @@ bairros = f"""
   <p class="lead">Digite o bairro ou a rua. Sem nada digitado, você vê a cidade inteira.</p>
   <div class="search">{SEARCH_ICON}<input id="bq" type="search" list="bl" placeholder="Digite seu bairro ou sua rua" autocomplete="off" aria-label="Bairro ou rua"><datalist id="bl"></datalist></div>
   <ul class="chips" id="chips"></ul>
-  <p class="mute" style="font-size:14px">A Câmara não informa o bairro de cada pedido. O Radar lê o bairro e a rua no próprio texto oficial; quando o texto não traz esses nomes, o pedido aparece só na busca por palavra.</p>
+  <p class="mute" style="font-size:14px">O Radar busca o bairro e a rua no texto das propostas. A Câmara também publica pedidos sem o nome da rua ou do bairro.</p>
   <div id="bres"></div>
 </section>
 <section class="wrap" id="repetidos">
   <p class="eyebrow">Só aqui</p>
-  <h2>O problema que não some</h2>
-  <p class="lead">Quando o mesmo pedido volta várias vezes para a mesma rua, é sinal de que o problema continua lá. O site da Câmara mostra os pedidos um por um; aqui eles são cruzados.</p>
+  <h2>Pedidos que voltaram à Câmara</h2>
+  <p class="lead">Veja pedidos sobre a mesma rua e o mesmo tema registrados mais de uma vez. O site da Câmara mostra os pedidos um por um; aqui eles são cruzados.</p>
   <p class="warn"><b>Atenção:</b> pedido repetido não prova que a Prefeitura ignorou. Às vezes o serviço foi feito e o problema voltou, ou o pedido é sobre um trecho diferente da mesma rua.</p>
   <div class="reps" id="reps"></div>
 </section>
@@ -559,7 +572,7 @@ LOC_SOBRE = ('    <details open><summary>Onde foi votado e onde pede</summary><p
              'Atenção: o eleitor vota perto de onde morava quando tirou o título, que nem sempre é onde mora hoje. Por isso o cruzamento mostra uma tendência, não uma regra.</p></details>'
              if D.get("locm") is not None else "")
 contato_sobre = (f'Escreva para <a href="mailto:{e(CONTATO)}"><b>{e(CONTATO)}</b></a> com o link da proposta ou da página. A correção é feita rápido.'
-                 if CONTATO else "Em breve um endereço de contato para correções aparecerá aqui.")
+                 if CONTATO else "O contato para correções está no Instagram da Voz das Cidades.")
 sobre = f"""
 <section class="wrap phead">
   <p class="eyebrow">Transparência</p>
@@ -569,7 +582,7 @@ sobre = f"""
     <div class="box"><h3>De onde vêm os dados</h3><ul class="themes" style="gap:10px">
       <li><span class="ti">1</span><span>Dados Abertos da Câmara Municipal de Serra Negra (<a href="https://www.cmserranegra.sp.gov.br/dadosabertos" target="_blank" rel="noopener">cmserranegra.sp.gov.br/dadosabertos</a>): vereadores em exercício, proposições e pautas das sessões</span><b></b></li>{TCE_SOBRE}</ul>
       <p class="mute" style="margin:12px 0 0;font-size:14px">Consultamos as fontes oficiais todos os dias. Quando a coleta retorna dados incompletos ou inconsistentes, o site continua mostrando a última versão validada.</p></div>
-    <div class="box"><h3>Achou um erro?</h3><p style="margin:0 0 10px">{contato_sobre}</p></div>
+    <div class="box"><h3>Achou um erro?</h3><p style="margin:0 0 10px">{contato_sobre}</p>{link_correcao("/sobre/", "Metodologia e fontes")}</div>
   </div>
 </section>
 <section class="wrap">

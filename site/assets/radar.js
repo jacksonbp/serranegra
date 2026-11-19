@@ -135,7 +135,7 @@ function openRep(g){
   openSheet('b',TH[g.th][1],g.r,`${TH[g.th][0]} · pedido ${g.n} vezes até agora${g.b?' · '+g.b:''}`);
   const cnt=new Map(); g.items.forEach(it=>it[6].forEach(a=>cnt.set(a,(cnt.get(a)||0)+1)));
   const who=[...cnt.entries()].sort((a,b)=>b[1]-a[1]);
-  const msg=a=>`Olá, ${V[a].ap}. Moro em ${CONFIG.cidade}. A Câmara já recebeu ${g.n} pedidos de ${TEMA[g.th]||'melhoria'} na ${g.r}${g.b?', '+g.b:''}, desde ${mesAno(g.d0)}. ${cnt.get(a)===1?'Um deles saiu':cnt.get(a)+' deles saíram'} do seu gabinete, e o problema continua. O que a Prefeitura respondeu? O que ainda dá para fazer?\n\nFonte: ${SITE}`;
+  const msg=a=>`Olá, ${V[a].ap}. Moro em ${CONFIG.cidade}. A Câmara já recebeu ${g.n} pedidos de ${TEMA[g.th]||'melhoria'} na ${g.r}${g.b?', '+g.b:''}, desde ${mesAno(g.d0)}. ${cnt.get(a)===1?'Um deles saiu':cnt.get(a)+' deles saíram'} do seu gabinete. Você pode informar a situação desses pedidos e a resposta da Prefeitura?\n\nFonte: ${SITE}`;
   $('sh-b').innerHTML=(who.length?`<div class="cob"><h3>Cobre uma resposta</h3>
     <p>A mensagem já vem pronta. Escolha o vereador, ajuste o texto se quiser e envie.</p>
     <label class="field">Para quem<select id="cob-v">${who.map(([a,n])=>`<option value="${a}">${esc(V[a].ap)} (${n} ${n===1?'pedido':'pedidos'} para esta rua)</option>`).join('')}</select></label>
@@ -145,7 +145,7 @@ function openRep(g){
   if(who.length){
     const sel=$('cob-v'), ta=$('cob-t');
     const links=()=>{const v=V[+sel.value], t=encodeURIComponent(ta.value);
-      $('cob-a').innerHTML=(v.email?`<a class="btn" href="mailto:${esc(v.email)}?subject=${encodeURIComponent(g.r+': o problema continua')}&body=${t}">Enviar por e-mail</a>`:'')
+      $('cob-a').innerHTML=(v.email?`<a class="btn" href="mailto:${esc(v.email)}?subject=${encodeURIComponent(g.r+': situação dos pedidos')}&body=${t}">Enviar por e-mail</a>`:'')
         +`<a class="btn wa" href="https://wa.me/?text=${t}" target="_blank" rel="noopener">Mandar no grupo do bairro</a><button class="btn gh" type="button" id="cob-cp">Copiar mensagem</button>`;
       $('cob-c').innerHTML=(v.email?`E-mail oficial do gabinete: <b>${esc(v.email)}</b>`:'')+(v.email&&CONFIG.telefone?' · ':'')+(CONFIG.telefone?`Telefone da Câmara: <b>${esc(CONFIG.telefone)}</b>`:'');
       $('cob-cp').onclick=async e=>{try{await navigator.clipboard.writeText(ta.value);e.target.textContent='Copiado'}catch(_){ta.focus();ta.select();e.target.textContent='Selecionado: copie com o dedo'}}};
@@ -240,7 +240,6 @@ P.inicio=function(){
   $('faces').innerHTML=V.slice().sort(ORD.nome).map(v=>`<li><a href="${urlV(v)}">${foto(v,'')}<span>${esc(v.ap)}</span></a></li>`).join('');
   $('bairros-chips').innerHTML=D.bairros.slice(0,8).map(b=>`<li><a class="chip" href="${BASE}/bairros/?q=${encodeURIComponent(b)}">${esc(b)}</a></li>`).join('');
   if ($('hq-bairros')) $('hq-bairros').replaceChildren(...D.bairros.map(b => new Option(b,b)));
-  $('fbq').addEventListener('submit',e=>{e.preventDefault();location.href=BASE+'/bairros/?q='+encodeURIComponent($('hq').value.trim())});
   const PA=D.pautas||[];
   if(PA.length)$('pautas-inicio').innerHTML='<ul class="items">'+PA.map(pautaHTML).join('')+'</ul>'; else $('sessoes-recentes').hidden=true;
   listaReps($('reps'),D.rep.slice(0,CEL?3:6),CEL?3:6);
@@ -325,7 +324,7 @@ P.bairros=function(){
     try{history.replaceState(null,'',location.pathname+(city?'':'?q='+encodeURIComponent(q.trim()))+location.hash)}catch(_){}
     if(!city&&k.length<3){host.innerHTML='<div class="panel"><p class="mute" style="margin:0">Continue digitando: preciso de pelo menos 3 letras.</p></div>';return}
     const items=city?IT:IT.filter(it=>it.n.includes(k));
-    if(!items.length){host.innerHTML=`<div class="panel"><p class="mute" style="margin:0">Nada encontrado para “${esc(q)}”. Confira a grafia ou tente só uma parte do nome.</p></div>`;return}
+    if(!items.length){host.innerHTML=`<div class="panel"><p class="mute" style="margin:0">Nada encontrado para “${esc(q)}”. Confira a grafia ou tente só uma parte do nome. Alguns pedidos só descrevem o assunto, sem citar a rua ou o bairro.</p><p><a href="${BASE}/propostas/?q=${encodeURIComponent(q.trim())}#lista-propostas">Pesquisar por palavra nas propostas</a></p></div>`;return}
     const cnt=new Map(); items.forEach(it=>it[6].forEach(a=>cnt.set(a,(cnt.get(a)||0)+1)));
     const top=[...cnt.entries()].sort((a,b)=>b[1]-a[1]), mx=top.length?top[0][1]:1;
     const th=themeCount(items.filter(it=>it[4]==='b'||it[4]==='c')).slice(0,city&&CEL?3:5);
@@ -338,7 +337,7 @@ P.bairros=function(){
        ${th.length?`<div><h3>O que mais pedem</h3><ul class="themes">${th.map(([t,n])=>`<li><span class="ti">${svg(ICON[TH[t][1]],18)}</span><span>${esc(TH[t][0])}</span><b class="num">${nf(n)}</b></li>`).join('')}</ul></div>`:''}
        ${city&&!CEL&&D.bairros.length?`<div><h3>Bairros mais citados</h3><ul class="themes">${D.bairros.slice(0,5).map((b,i)=>`<li><span class="ti">${svg(ICON.pin,18)}</span><button class="lnk" type="button" data-b="${esc(b)}">${esc(b)}</button><b class="num">${nf(D.bairrosn[i])}</b></li>`).join('')}</ul></div>`:''}
      </div>
-     ${reps.length?`<p class="h3" style="margin-top:24px">Problemas que voltam aqui</p><div class="reps">${reps.map(repHTML).join('')}</div>`:''}
+     ${reps.length?`<p class="h3" style="margin-top:24px">Pedidos repetidos nesta região</p><div class="reps">${reps.map(repHTML).join('')}</div>`:''}
      <p class="h3" style="margin-top:24px">${city?'As propostas mais recentes da cidade':'Os pedidos mais recentes'}</p><div id="blist"></div></div>`;
     const list=$('blist');
     const topics=themeCount(items).filter(([key])=>Object.hasOwn(TH,key));
@@ -377,7 +376,9 @@ P.propostas=function(){
   const category=new URLSearchParams(location.search).get('categoria');
   let tm, cat=ORDER.includes(category)?category:'';
   $('ptabs').innerHTML=`<li><button class="chip${cat?'':' on'}" type="button" data-k="">Todas</button></li>`+ORDER.map(c=>`<li><button class="chip${cat===c?' on':''}" type="button" data-k="${c}">${CAT[c][0]}</button></li>`).join('');
-  const draw=()=>{const k=norm($('pq').value.trim());const L=IT.filter(it=>(!cat||it[4]===cat)&&(!k||it.n.includes(k)));
+  $('pq').value=new URLSearchParams(location.search).get('q')||'';
+  const draw=()=>{const termos=norm($('pq').value.trim()).split(/\s+/).filter(Boolean);
+    const L=IT.filter(it=>(!cat||it[4]===cat)&&termos.every(termo=>it.n.includes(termo)));
     $('pcount').textContent=`${nf(L.length)} ${L.length===1?'proposta':'propostas'}`;pager($('plista'),L,true,CEL?6:12)};
   $('ptabs').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;cat=b.dataset.k;$('ptabs').querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));draw()});
   $('pq').addEventListener('input',()=>{clearTimeout(tm);tm=setTimeout(draw,180)}); draw();
